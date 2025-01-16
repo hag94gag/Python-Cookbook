@@ -1,0 +1,49 @@
+Variable as a Reference:
+	A variable doesn't directly hold the value but points (or refers) to an object in memory.
+	The actual value resides in memory, and the variable acts as a "label" for it.
+
+Object Identity:
+	Every object in memory has a unique identifier, which can be obtained using the id() function.
+	If two variables share the same id(), they reference the same object.
+
+
+Pass by Reference:
+
+	When a function receives a reference to the same memory location as the original variable.
+	Python uses this for mutable objects.
+
+Pass by Value:
+	When a function gets a copy of the variable's value.
+	Python simulates this behavior for immutable objects by creating a new object when changes are made.
+
+Function Call Behavior
+For Immutable Types:
+
+	If the value is changed, a new object is created.
+	The reference inside the function points to the new object, leaving the original object unchanged.
+For Mutable Types:
+	The same memory location is shared.
+	Changes made inside the function reflect outside it.
+id()					To retrieve the unique identifier for an object. This identifier is an integer and acts as a memory address or location
+
+copy.copy()				can be used to make a duplicate copy of a mutable value like a list or
+					dictionary, not just a copy of a reference.
+
+deepcopy()				If the list you need to copy contains lists, then use the deepcopy function instead of copy.copy(). The
+					it will will copy these inner lists as well.
+
+
+
+The multiple assignment trick		to assign multiple variables simultaneously in a single line.
+					Examples:
+
+						x, y, z = 1, 2, 3
+						
+						>>> cat = ['fat', 'gray', 'loud']
+						>>> size, color, disposition = cat
+
+strings are immutable
+
+
+					
+

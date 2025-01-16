@@ -1,0 +1,64 @@
+x = 10          # x is assigned the value 10
+y = x           # y points to the same memory location as x
+
+Memory (Initial State):
++---------+          +----+
+| Variable|          | 10 |   # Memory stores the value 10
++---------+          +----+
+|    x    |   -----> |    |   # x points to the memory holding 10
+|    y    |   -----> |    |   # y also points to the same memory location
++---------+          +----+
+
+x = 20          # x is reassigned to 20, creating a new memory location for 20
+
+Memory (After x is reassigned):
++---------+          +----+      +----+
+| Variable|          | 10 |      | 20 |   # Memory now stores two values: 10 and 20
++---------+          +----+      +----+
+|    x    |   -----> |    | <----| 20 |   # x now points to the new memory location holding 20
+|    y    |   -----> | 10 |      |    |   # y remains pointing to the original memory location (10)
++---------+          +----+      +----+
+
+Explanation:
+- Immutable variables (like integers) do not allow in-place modification.
+- When reassigned, a new memory block is created, and the variable points to the new block.
+
+
+
+
+lst1 = [1, 2, 3]  # lst1 is assigned to a list object
+lst2 = lst1       # lst2 points to the same list as lst1
+
+Memory (Initial State):
++---------+          +---------------+
+| Variable|          |     List      |
++---------+          +---------------+
+|   lst1  |   -----> | [1, 2, 3]     |   # Both lst1 and lst2 point to the same memory location
+|   lst2  |   -----> |               |
++---------+          +---------------+
+
+lst1.append(4)   # Modify the list via lst1
+
+Memory (After Modification):
++---------+          +---------------+
+| Variable|          |     List      |
++---------+          +---------------+
+|   lst1  |   -----> | [1, 2, 3, 4]  |   # The list object is updated in place
+|   lst2  |   -----> |               |   # lst2 sees the change because it references the same list
++---------+          +---------------+
+
+lst1 = [5, 6, 7]  # Reassign lst1 to a new list
+
+Memory (After Reassignment):
++---------+          +---------------+       +---------------+
+| Variable|          |     List      |       |     List      |
++---------+          +---------------+       +---------------+
+|   lst1  |   -----> | [5, 6, 7]     |       | [1, 2, 3, 4]  |  # lst2 still references the original list
+|   lst2  |   -----> |               | <---- |               |
++---------+          +---------------+       +---------------+
+
+Explanation:
+- Mutable objects (like lists) allow in-place modification.
+- Changes made to a shared object are visible to all variables pointing to it.
+- Reassignment creates a new reference, disconnecting one variable from the shared object.
+
