@@ -1,0 +1,21 @@
+****************************************
+*          send2trash Module           *
+****************************************
+
+The `send2trash` module is used to move files and folders  to the operating system's **trash** or **recycle bin** instead of permanently deleting them.
+
+========================================
+|       INSTALLATION                   |
+========================================
+
+This module does not come with Python by default. You can install it via pip:
+
+```bash
+pip install send2trash
+
+====================
+|  FUNCTION USAGE  |
+==================== 
+- send2trash.send2trash(path)
+path: The path to the file or folder you want to move to the trash.
+

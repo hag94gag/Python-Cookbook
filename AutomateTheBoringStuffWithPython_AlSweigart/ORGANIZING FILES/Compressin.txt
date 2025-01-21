@@ -1,0 +1,88 @@
+******************************************
+*              zipfile Module            *
+******************************************
+
+The `zipfile` module in Python provides tools for creating,  extracting, reading, and writing ZIP files.
+
+==========================================
+|           BASIC FUNCTIONALITY          |
+==========================================
+
+- Compress files into ZIP archives.
+- Extract files from ZIP archives.
+- View the contents of ZIP files.
+- Append files to an existing ZIP archive.
+
+------------------------------------------
+**Importing the Module:**
+------------------------------------------
+```python
+import zipfile
+
+==========================
+| CREATING A ZIP ARCHIVE |
+========================== 
+
+import zipfile
+
+with zipfile.ZipFile('example.zip', 'w') as zipf:
+    zipf.write('file1.txt')  # Add file to ZIP
+    zipf.write('file2.txt')  # Add another file
+
+- 'w' mode is used to write a new ZIP file.
+- The write() method adds files to the archive.
+
+List Contents of a ZIP File:
+with zipfile.ZipFile('example.zip', 'r') as zipf:
+    print(zipf.namelist())
+
+Check Metadata of Files:
+with zipfile.ZipFile('example.zip', 'r') as zipf:
+    info = zipf.getinfo('file1.txt')
+    print(f"Filename: {info.filename}")
+    print(f"Compressed size: {info.compress_size} bytes")
+    print(f"Uncompressed size: {info.file_size} bytes")
+
+Extract All Files:
+with zipfile.ZipFile('example.zip', 'r') as zipf:
+    zipf.extractall('extracted_files')  # Specify output directory
+
+Extract a Specific File:
+with zipfile.ZipFile('example.zip', 'r') as zipf:
+    zipf.extract('file1.txt', 'extracted_files')
+
+Append Files to an Existing ZIP:
+with zipfile.ZipFile('example.zip', 'a') as zipf:
+    zipf.write('new_file.txt')  # Add file to existing archive
+
+Read a File Without Extracting:
+with zipfile.ZipFile('example.zip', 'r') as zipf:
+    with zipf.open('file1.txt') as file:
+        content = file.read()
+        print(content.decode())
+
+The zipfile module supports compression through the compression argument:
+
+zipfile.ZIP_STORED: No compression (default).
+zipfile.ZIP_DEFLATED: Standard compression.
+zipfile.ZIP_BZIP2: BZIP2 compression.
+zipfile.ZIP_LZMA: LZMA compression.
+
+with zipfile.ZipFile('example.zip', 'w', zipfile.ZIP_DEFLATED) as zipf:
+    zipf.write('file1.txt')
+
+Erorrs
+ipfile.BadZipFile: Raised if a file is not a valid ZIP archive.
+zipfile.LargeZipFile: Raised when creating ZIP archives larger than 4GB without enabling ZIP64.
+
+==========================================
+|         zipfile Module Functions       |
+==========================================
+
+| **Function**        | **Description**                          |
+|----------------------|------------------------------------------|
+| `ZipFile()`         | Open or create a ZIP file.               |
+| `write()`           | Add files to a ZIP archive.              |
+| `extract()`         | Extract a specific file.                 |
+| `extractall()`      | Extract all files.                       |
+| `namelist()`        | List all files in the archiv

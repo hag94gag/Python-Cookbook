@@ -1,0 +1,86 @@
+*********************************
+*        THE SHUTIL MODULE       *
+*********************************
+
+The `shutil` module provides a high-level interface  for file operations like copying, moving, renaming,  and deleting files or directories.
+
+=================================
+|     COMMONLY USED METHODS     |
+=================================
+
+1. COPY FILES
+----------------
+- shutil.copy(src, dest)
+  -> Copies a file from 'src' to 'dest'.
+  -> Only copies the file's data and permission mode.
+  
+- shutil.copy2(src, dest)
+  -> Same as `copy()`, but also copies metadata 
+     (e.g., timestamps).
+- shutil.copytree(src, dest, dirs_exist_ok=False)
+  -> Copy an entire directory tree
+  -> dirs_exist_ok If set to True, allows the destination directory to exist; otherwise, raises an error if `dest` already exists.
+
+
+2. MOVE FILES/DIRECTORIES
+----------------------------
+- shutil.move(src, dest)
+  -> Moves a file or directory to a new location.
+  -> Can also rename files.
+
+3. DELETE DIRECTORIES
+------------------------
+- shutil.rmtree(path)
+  -> Recursively deletes a directory and its contents.
+
+4. ARCHIVE OPERATIONS
+------------------------
+- shutil.make_archive(base_name, format, root_dir)
+  -> Creates an archive (e.g., .zip or .tar) of the 
+     specified directory.
+
+- shutil.unpack_archive(filename, extract_dir)
+  -> Extracts an archive file into the given directory.
+
+5. FILE PERMISSIONS AND METADATA
+-----------------------------------
+- shutil.chown(path, user, group)
+  -> Changes ownership of a file or directory.
+
+- shutil.copystat(src, dest)
+  -> Copies permissions, last access time, and other
+     metadata from 'src' to 'dest'.
+
+=================================
+|     EXAMPLES OF USAGE         |
+=================================
+
+1. Copying a file:
+-------------------
+shutil.copy("source.txt", "destination.txt")
+
+2. Moving and renaming:
+-------------------------
+shutil.move("old_folder", "new_folder")
+
+3. Deleting a directory:
+--------------------------
+shutil.rmtree("folder_to_delete")
+
+4. Creating a ZIP archive:
+----------------------------
+shutil.make_archive("backup", "zip", "my_folder")
+
+5. Extracting an archive:
+---------------------------
+shutil.unpack_archive("backup.zip", "output_folder")
+
+=================================
+|      USEFUL TIPS              |
+=================================
+
+- Be cautious with `shutil.rmtree()`, as it deletes directories permanently without sending to recycle bin.
+
+- Use `shutil.copy2()` for preserving metadata like timestamps and permissions.
+
+- Combine `os` and `shutil` for more advanced file manipulation tasks.

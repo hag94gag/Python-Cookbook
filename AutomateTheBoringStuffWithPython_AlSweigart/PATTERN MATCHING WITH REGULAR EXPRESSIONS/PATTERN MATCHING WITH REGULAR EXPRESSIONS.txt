@@ -1,0 +1,255 @@
+import re			
+
+re.compile()		Return a  regular expression object. This allows you to reuse the same pattern efficiently for multiple matching or searching operations without re-parsing the pattern each time.
+
+				Flages:
+
+					re.IGNORECASE or re.I		Makes the pattern case-insensitive, so it matches letters regardless of their case.
+						Example:
+
+							pattern = re.compile(r"hello", re.IGNORECASE)
+							print(pattern.match("Hello"))  # Match regardless of case
+
+					re.MULTILINE or re.M		Allows ^ and $ to match the start and end of each line, not just the start and end of the string.
+						Examples:
+
+							pattern = re.compile(r"^hello", re.MULTILINE)
+							text = "hello world\nhello again"
+							print(pattern.findall(text))  # Matches "hello" at the beginning of each line
+
+					re.DOTALL or re.S		Makes the . special character match any character, including newlines (\n).
+						Examples:
+
+							pattern = re.compile(r"hello.world", re.DOTALL)
+							text = "hello\nworld"
+							print(pattern.match(text))  # Matches across newlines
+					re.VERBOSE or re.X		Allows you to write more readable patterns by ignoring whitespace and enabling comments.
+						Examples:
+
+							pattern = re.compile(r"""
+							    \d{3}   # Area code
+							    -       # Separator
+							    \d{3}   # First 3 digits
+							    -       # Separator
+							    \d{4}   # Last 4 digits
+							""", re.VERBOSE)
+							print(pattern.match("123-456-7890"))  # Matches formatted phone numbers
+
+
+					re.ASCII or re.A		Makes \w, \W, \b, \B, \d, \D, \s, and \S match only ASCII characters, rather than Unicode.
+
+						Examples:
+							pattern = re.compile(r"\w+", re.ASCII)
+							text = "café"  # "é" is not ASCII
+							print(pattern.findall(text))  # Matches only "caf"	
+
+					re.LOCALE or re.L		Makes \w, \W, \b, \B, \d, \D, \s, and \S dependent on the current locale. Rarely used and mostly superseded by re.ASCII or Unicode handling.
+
+						Examples:		
+							import locale
+
+							locale.setlocale(locale.LC_ALL, 'en_US.UTF-8')
+							pattern = re.compile(r"\w+", re.LOCALE)
+							text = "café"
+							print(pattern.findall(text))  # Matches "café" based on locale
+
+					re.UNICODE or re.U		Ensures \w, \W, \b, \B, \d, \D, \s, and \S match Unicode characters. This is the default in Python 3, so this flag is often unnecessary.
+
+						Examples:
+							
+							pattern = re.compile(r"\w+", re.UNICODE)
+							text = "café"  # Unicode character
+							print(pattern.findall(text))  # Matches "café"
+
+					re.DEBUG			Displays the internal structure of the compiled pattern for debugging purposes. It doesn't affect matching.
+						
+						Examples:
+							pattern = re.compile(r"\d+", re.DEBUG)  # Outputs debug information about the pattern
+
+You can combine multiple flags using the | operator.
+
+	Example:
+		pattern = re.compile(r"hello.world", re.IGNORECASE | re.DOTALL)
+
+
+search() 		Searches for the first occurrence of the pattern anywhere in a string. If a match is found, it returns a match object
+			it takes two or three arguments:
+				pattern: The regular expression pattern to search for.
+				string: The string in which to search for the pattern.
+				flags: Optional; modifies the behavior of the matching. For example, re.IGNORECASE.
+
+				Methods:
+					group(): Returns the matched string.
+					start(): Returns the start index of the match.
+					end(): Returns the end index of the match.
+					span(): Returns a tuple (start, end) indicating the range of the match.
+
+
+match() 		Only checks for a match at the beginning of the string.
+
+()			Adding parentheses will create groups in the regex. Then you can use the group() match object method to grab the matching text from just one group.
+				Example:
+
+					For the string "123-456-7890":
+					Entire match (group(0)): 123-456-7890
+					Group 1 (group(1)): 123
+					Group 2 (group(2)): 456-7890
+
+
+groups()		returns a tuple of all the captured groups, in the order they appear in the pattern. It does not include the entire match unless explicitly grouped.
+
+It is Preferred to use Raw String with Regex patterns 
+
+=========================================================
+| Special Character  | Meaning                         |
+=========================================================
+| 	.            | Matches any character except \n |
+---------------------------------------------------------
+| 	^            | Matches the start of a string   |
+---------------------------------------------------------
+| 	$            | Matches the end of a string     |
+---------------------------------------------------------
+| 	*            | Matches 0 or more repetitions   |
+---------------------------------------------------------
+| 	+            | Matches 1 or more repetitions   |
+---------------------------------------------------------
+| 	?            | Matches 0 or 1 repetitions      |
+---------------------------------------------------------
+| 	{n}          | Matches exactly n repetitions   |
+---------------------------------------------------------
+| 	{n,}         | Matches n or more repetitions   |
+---------------------------------------------------------
+| 	{n,m}        | Matches between n and m reps    |
+---------------------------------------------------------
+| 	[]           | Matches a set of characters     |
+|                    | (e.g., [abc] matches 'a', 'b',  |
+|                    | or 'c')                         |
+---------------------------------------------------------
+| 	[^]          | Matches any char not in set     |
+|                    | (e.g., [^abc] excludes 'a',     |
+|                    | 'b', and 'c')                   |
+---------------------------------------------------------
+| 	()           | Groups patterns for capturing   |
+|                    | and reusing                     |
+---------------------------------------------------------
+| 	|            | Logical OR (e.g., a|b matches   |
+|                    | 'a' or 'b')                     |
+---------------------------------------------------------
+| 	\            | Escapes a special character or  |
+|                    | introduces a special sequence   |
+---------------------------------------------------------
+| 	\d           | Matches any digit (0-9)         |
+---------------------------------------------------------
+| 	\D           | Matches any non-digit           |
+---------------------------------------------------------
+| 	\w           | Matches any word character      |
+|                    | (alphanumeric or underscore)    |
+---------------------------------------------------------
+| 	\W           | Matches any non-word character  |
+---------------------------------------------------------
+| 	\s           | Matches any whitespace          |
+|                    | (space, tab, newline, etc.)     |
+---------------------------------------------------------
+| 	\S           | Matches any non-whitespace      |
+---------------------------------------------------------
+| 	\b           | Matches word boundaries         |
+---------------------------------------------------------
+| 	\B           | Matches non-word boundaries     |
+---------------------------------------------------------
++--------------+--------------------------------------------------+---------------------------------------------------------+
+| Syntax       | Purpose                                          | Example                                                 |
++--------------+--------------------------------------------------+---------------------------------------------------------+
+| (?:...)      | Non-capturing group (groups without backrefs)    | Pattern: (?:cat|dog)-house                              |
+|              |                                                  | Text: "cat-house dog-house"                             |
+|              |                                                  | Matches: ['cat-house', 'dog-house']                     |
++--------------+--------------------------------------------------+---------------------------------------------------------+
+| (?=...)      | Positive lookahead (matches if followed by)      | Pattern: foo(?=bar)                                     |
+|              |                                                  | Text: "foobar foobaz"                                   |
+|              |                                                  | Matches: ['foo']                                        |
++--------------+--------------------------------------------------+---------------------------------------------------------+
+| (?!...)      | Negative lookahead (matches if NOT followed)     | Pattern: foo(?!bar)                                     |
+|              |                                                  | Text: "foobar foobaz"                                   |
+|              |                                                  | Matches: ['foo']                                        |
++--------------+--------------------------------------------------+---------------------------------------------------------+
+| (?<=...)     | Positive lookbehind (matches if preceded by)     | Pattern: (?<=foo)bar                                    |
+|              |                                                  | Text: "foobar bazbar"                                   |
+|              |                                                  | Matches: ['bar']                                        |
++--------------+--------------------------------------------------+---------------------------------------------------------+
+| (?<!...)     | Negative lookbehind (matches if NOT preceded)    | Pattern: (?<!foo)bar                                    |
+|              |                                                  | Text: "foobar bazbar"                                   |
+|              |                                                  | Matches: ['bar']                                        |
++--------------+--------------------------------------------------+---------------------------------------------------------+
+| (?P<name>...)| Named capturing group                           | Pattern: (?P<word>\w+)-house                             |
+|              |                                                  | Text: "dog-house cat-house"                             |
+|              |                                                  | Matches: ['dog', 'cat']                                 |
++--------------+--------------------------------------------------+---------------------------------------------------------+
+| (?P=name)    | Named backreference (matches named group)        | Pattern: (?P<word>\w+)-(?P=word)                        |
+|              |                                                  | Text: "cat-cat dog-dog dog-cat"                         |
+|              |                                                  | Matches: ['cat', 'dog']                                 |
++--------------+--------------------------------------------------+---------------------------------------------------------+
+| (?>...)      | Atomic group (no backtracking after match)       | Pattern: (?>cat|caterpillar)er                          |
+|              |                                                  | Text: "caterer"                                         |
+|              |                                                  | Matches: None (no backtracking allowed)                 |
++--------------+--------------------------------------------------+---------------------------------------------------------+
+| (?ifthen|else)| Conditional matching (if group, then/else)      | Pattern: (?:(foo)|bar)(?(1)baz|qux)                     |
+|              |                                                  | Text: "foobaz barqux"                                   |
+|              |                                                  | Matches: [('foo', ''), ('', '')]                        |
++--------------+--------------------------------------------------+---------------------------------------------------------+
+| (?i)         | Case-insensitive matching                        | Pattern: (?i)cat                                        |
+|              |                                                  | Text: "Cat cAt CAT cat"                                 |
+|              |                                                  | Matches: ['Cat', 'cAt', 'CAT', 'cat']                   |
++--------------+--------------------------------------------------+---------------------------------------------------------+
+| (?m)         | Multi-line mode (^ and $ match per line)         | Pattern: (?m)^cat$                                      |
+|              |                                                  | Text: "cat\ndog\ncat"                                   |
+|              |                                                  | Matches: ['cat', 'cat']                                 |
++--------------+--------------------------------------------------+---------------------------------------------------------+
+| (?s)         | Dot-all mode (. matches newline)                | Pattern: (?s)cat.*dog                                    |
+|              |                                                  | Text: "cat\nsome text\ndog"                             |
+|              |                                                  | Matches: ['cat\nsome text\ndog']                        |
++--------------+--------------------------------------------------+---------------------------------------------------------+
+| (?x)         | Verbose mode (ignores spaces, allows comments)   | Pattern: (?xi) ^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$  |
+|              |                                                  | Text: "test@example.com"                                |
+|              |                                                  | Matches: ['test@example.com']                           |
++--------------+--------------------------------------------------+---------------------------------------------------------+
+
+
+---------------------------------------------------------
+| 	.*           | means zero or more occurrences  |
+|                    | 		of any character.      |
+---------------------------------------------------------
+
+Greedy Matching
+Greedy matching tries to match as much text as possible. It will continue trying to match more characters until it can no longer match the pattern.
+
+Greedy quantifiers:
+	* (zero or more)
+	+ (one or more)
+	? (zero or one)
+	{m,n} (between m and n times)
+
+Non-Greedy (Lazy) Matching
+Non-greedy (or lazy) matching, on the other hand, tries to match the smallest possible amount of text that satisfies the pattern.
+
+Non-greedy quantifiers:
+	*? (zero or more)
+	+? (one or more)
+	?? (zero or one)
+	{m,n}? (between m and n times, but as few as possible)
+
+findall()		return a list of the strings of every match in the searched string.
+			When called on a regex that has groups returns a list of tuples of strings.
+
+
+
+sub()			places all occurrences of the RE pattern instring withrepl, substituting all occurrences unless
+			max provided. This method would returnmodified string .
+			Parameters:
+				pattern: The regular expression pattern that you want to search for in the string.
+				replacement: The string that will replace every match of the pattern in the string.
+				string: The string in which the substitution will occur.
+				count (optional): A number specifying the maximum number of substitutions to make. If omitted or set to 0, all occurrences of the pattern will be replaced.
+				flags (optional): Flags to modify the behavior of the regular expression, such as re.IGNORECASE, re.DOTALL, etc.
+
+
+
+
