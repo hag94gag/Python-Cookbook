@@ -1,0 +1,6 @@
+import pprint			import pretty printing
+
+pprint.pprint()			pretty-printing data structures (such as lists, dictionaries, etc.) in a more readable format.
+
+pprint.pformat()		Returns the string representation of the pretty-printed data structure rather than printing it directly.
+

@@ -1,0 +1,30 @@
+FLOW CONTROL
+
++----------+--------------------------+
+| Operator |          Meaning         |
++==========+==========================+
+|    ==    |         Equal to         |
++----------+--------------------------+
+|    !=    |       Not equal to       |
++----------+--------------------------+
+|     <    |         Less than        |
++----------+--------------------------+
+|     >    |       Greater than       |
++----------+--------------------------+
+|    <=    |   Less than or equal to  |
++----------+--------------------------+
+|    >=    | Greater than or equal to |
++----------+--------------------------+
+
+These operators evaluate to True or False depending on thier values 
+
+Boolean Operators:
+	and
+	or
+	not
+Mixing Boolean and Comparison Operators
+Examle:
+	(((1+1) == 2) or ((1+1) < 7)) and ((2 != 2) and (7 == 8))
+
+
+

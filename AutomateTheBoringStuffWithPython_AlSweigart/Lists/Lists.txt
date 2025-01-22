@@ -1,0 +1,41 @@
+[] + []			List Concatenation
+
+[:]			Slicing
+			[:x]	form the frist element to x
+			[:x]	form x to the last element 
+			[:]	The whole list
+			[-1]	The last element
+
+[x]			use indexing to access list elements
+
+del 			use Delete statement to delete a list element or the list object
+
+in & not in		can determine whether a value is or isn’t in a list
+
+enumerate()					will return two values: the index of the item in the list, and the item in the list itself
+						Examples:
+							 for index, item in enumerate(supplies):
+
+import random
+random.choice()					return a randomly selected item from the list
+
+random.shuffle()				reorder the items in a list in place.
+
+index()						Return the index of an element
+
+append()					Add a value at the end of the list
+
+insert()					Takes two arguments the index and the value
+
+remove()					Method is passed the value to be removed from the list it is called on.
+
+sort()						Sort a list in place
+						Arguments
+							key=str.lower		To sort the values in regular alphabetical order.
+
+reverse()					Reverse the order of the items
+
+Tuples						Are immutable Tuples cannot have their values modified, appended, or removed.
+
+
+

@@ -1,0 +1,61 @@
+import pyinputplus			 Python module that simplifies the process of gathering and validating user input. It's an extension of the built-in input() function and provides additional features, such as:
+
+						Validation: Ensures that user input matches a specified pattern or type.
+						Retries: Allows you to specify how many times a user can retry if their input is invalid.
+						Custom error messages: Lets you display custom error messages when the input is invalid.
+						Range checks: Can ensure input falls within a certain range (numeric or strings).
+						Choice checks: Ensures input matches one of a list of possible choices.
+
++---------------------+-------------------------------------------------------------+---------------------------------------------+
+| Method              | Description                                                 | Example                                     |
++---------------------+-------------------------------------------------------------+---------------------------------------------+
+| inputChoice()       | Prompt for a user input from a list of valid options.       | inputChoice(['red', 'green', 'blue'])      |
+| inputMenu()         | Displays a menu and gets a valid choice from a list.        | inputMenu(['start', 'exit'], numbered=True)|
+| inputInt()          | Prompts for an integer and validates the input.             | inputInt('Enter an integer: ')             |
+| inputFloat()        | Prompts for a float and validates the input.                | inputFloat('Enter a float: ')              |
+| inputYesNo()        | Prompts for a yes or no answer and validates the input.     | inputYesNo('Continue? (yes/no): ')         |
+| inputDate()         | Prompts for a date and validates the format.                | inputDate('Enter a date (YYYY-MM-DD): ')   |
+| inputEmail()        | Prompts for an email address and validates the format.      | inputEmail('Enter your email: ')           |
+| inputPassword()     | Prompts for a password and validates it.                    | inputPassword('Enter password: ')          |
+| inputTime()         | Prompts for a time input and validates it.                  | inputTime('Enter time (HH:MM): ')          |
+| inputPhone()        | Prompts for a phone number and validates the format.        | inputPhone('Enter your phone number: ')    |
+| inputStr()          | Prompts for a string input and validates it.                | inputStr('Enter a string: ')               |
+| inputNum()          | Prompts for a number (int or float) and validates it.       | inputNum('Enter a number: ')               |
+| inputDatetime()     | Prompts for a date/time input and validates it.             | inputDatetime('Enter date/time: ')         |
+| inputBool()         | Prompts for a boolean (True/False) input.                   | inputBool('Continue? (y/n): ')             |
+| inputFilepath()     | Prompts for a valid file path and validates it.             | inputFilepath('Enter file path: ')         |
++---------------------+-------------------------------------------------------------+--------------------------------------------+
+
++------------------+------------------------------------------------------------+-------------------------------------------------------------+
+| Keyword Argument | Description                                                | Example                                                     |
++------------------+------------------------------------------------------------+-------------------------------------------------------------+
+| min              | Specifies the minimum value allowed for a number input.    | inputNum('Enter a number (min 10): ', min=10)              |
+| max              | Specifies the maximum value allowed for a number input.    | inputNum('Enter a number (max 100): ', max=100)            |
+| greaterThan      | Input must be greater than a given value.                  | inputNum('Enter a number > 50: ', greaterThan=50)          |
+| lessThan         | Input must be less than a given value.                     | inputNum('Enter a number < 20: ', lessThan=20)             |
+| blank            | Allows blank input if set to True.                         | inputStr('Enter text (blank allowed): ', blank=True)       |
+| limit            | Specifies the max number of attempts for valid input.      | inputNum('Attempts allowed: ', limit=3)                    |
+| timeout          | Specifies the max time (in seconds) allowed for input.     | inputNum('Respond in 10s: ', timeout=10)                   |
+| default          | Specifies a default value if no valid input is given.      | inputNum('Default is 0: ', default=0)                      |
+| allowRegexes     | List of regex patterns to explicitly allow as valid input. | inputStr('Only abc: ', allowRegexes=[r'abc'])              |
+| blockRegexes     | List of regex patterns to explicitly block.                | inputStr('No xyz: ', blockRegexes=[r'xyz'])                |
++------------------+------------------------------------------------------------+------------------------------------------------------------+
+
+inputCustom():				This method allows you to create custom validation rules by specifying a function that processes the input.
+					The function can raise an exception if the input is invalid or return the processed input.
+					Example:
+						def starts_with_A(value):
+						    if not value.startswith('A'):
+						        raise Exception('Input must start with "A".')
+						    return value
+
+						result = pyinputplus.inputCustom(starts_with_A)
+
+
+
+
+
+
+
+
+			

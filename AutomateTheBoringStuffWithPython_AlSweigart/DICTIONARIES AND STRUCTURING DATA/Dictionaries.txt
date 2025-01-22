@@ -1,0 +1,15 @@
+dictionaries are not ordered and mutable 
+
+keys()		To get the key
+values()	To get the values
+items()		To get both
+
+in & not in 	Checking Whether a Key or Value Exists in a Dictionary
+
+get()		takes two arguments: the key of the value to retrieve and a fallback value to
+		return if that key does not exist.
+
+setdefault()	It takes two arguments The first argument passed to the method is the key to check for, and the
+		second argument is the value to set at that key if the key does not exist.
+		If the key does exist, the method returns the key’s value.
+
