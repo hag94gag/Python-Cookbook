@@ -1,0 +1,20 @@
+import random
+
+random.random()			Returns a random float between 0 and 1
+
+random.randint()		It takes two arguments: the start and end of the range (both inclusive), 
+				and returns a random integer within that range.
+
+random.choice()			It takes a sequence (such as a list, tuple, or string) as an argument and returns a randomly chosen element.
+
+random.uniform()		It takes two arguments: the start and end of the range (both inclusive) and returns a random float within that range.
+
+random.sample()			It takes two arguments: the list of elements and the number of elements to be selected.
+
+random.shuffle()		It modifies the list in place and changes the order of its elements randomly.
+
+random.choices()		allows you to specify weights for different options using the weights parameter.
+				also can be used th generate random string
+
+
+

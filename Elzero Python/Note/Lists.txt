@@ -1,0 +1,15 @@
+list[0:2]=[]		modfy group of elements
+append()		to add value to a list
+extend()		merge lists
+remove()		remove a specific element removes only one element
+sort()			sorts the list it has default(reverse=False) it works in place and return none
+sorted()		to sort elements stand alone method it has default(reverse=False)
+reverse()		reveres the list
+clear()			remove all items in the list
+copy()			copy a list
+count()			count element repetition
+index()			find an element index the first index it gets
+insert()		insert object before index
+pop()			remove and return item in index
+map()			to apply a given function to every item of an iterable, such as a list or tuple, and returns a map object (which is an iterator)
+*			used to unpack a list

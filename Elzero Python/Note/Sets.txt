@@ -1,0 +1,18 @@
+sets{}		are not ordered and not indexing and unique
+clear()		to empty the set
+union()		merge sets or you can just use |
+add()		add element
+copy()		soft link
+remove()	remove element
+discard()	does not raise an error if the element does nor exist
+pop()		get an random element out of the set
+update() 	merge sets it can get list
+difference()	get the difference between two sets ypu can use -
+difference_update()		work on place
+intersection()	repeated elements in the two sets you can use &
+intersection_update()		same put work in place
+symmetric_difference()		get the difference in both sets
+symmetric_difference_update()	same but work in place
+issuperset()	does a set contain another set
+issubset()	is set a a sb set of b
+isdisjoint()	is there similarties

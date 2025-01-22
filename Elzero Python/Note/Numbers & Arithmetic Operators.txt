@@ -1,0 +1,84 @@
+Precedence and Associativity of Operators in Python
+
++----------------------------------------------+-------------------------------------------------------------+
+|                  Description                 |                        Associativity                        |
++==============================================+=============================================================+
+|                      ()                      |                         Parentheses                         |
++----------------------------------------------+-------------------------------------------------------------+
+|           x[index], x[index:index]           |                     Subscription, slicing                   |
++----------------------------------------------+-------------------------------------------------------------+
+|                    await x                   |                       Await expression                      |
++----------------------------------------------+-------------------------------------------------------------+
+|                      **                      |                        Exponentiation                       |
++----------------------------------------------+-------------------------------------------------------------+
+|                  +x, -x, ~x                  |              Positive, negative, bitwise NOT                |
++----------------------------------------------+-------------------------------------------------------------+
+|                *, @, /, //, %                | Multiplication, matrix, division, floor division, remainder |
++----------------------------------------------+-------------------------------------------------------------+
+|                     +, –                     |                   Addition and subtraction                  |
++----------------------------------------------+-------------------------------------------------------------+
+|                    <<, >>                    |                            Shifts                           |
++----------------------------------------------+-------------------------------------------------------------+
+|                       &                      |                         Bitwise AND                         |
++----------------------------------------------+-------------------------------------------------------------+
+|                       ^                      |                         Bitwise XOR                         |
++----------------------------------------------+-------------------------------------------------------------+
+|                       |                      |                          Bitwise OR                         |
++----------------------------------------------+-------------------------------------------------------------+
+| in, not in, is, is not, <, <=, >, >=, !=, == |          membership, identity, comparison operators         |
++----------------------------------------------+-------------------------------------------------------------+
+|                      not                     |                         Logical NOT                         |
++----------------------------------------------+-------------------------------------------------------------+
+|                      and                     |                         Logical AND                         |
++----------------------------------------------+-------------------------------------------------------------+
+|                      or                      |                          Logical OR                         |
++----------------------------------------------+-------------------------------------------------------------+
+|                    if-else                   |                    Conditional expression                   |
++----------------------------------------------+-------------------------------------------------------------+
+|                    lambda                    |                      Lambda expression                      |
++----------------------------------------------+-------------------------------------------------------------+
+|                                              |                                                             |
++----------------------------------------------+-------------------------------------------------------------+
+
+
+	   |		    |------- Integer (int) 
+	   |		    |
+	   | Numeric Data   |------- Float (float) 
+	   |		    |
+	   |		    |------- Complex (complex) : consisting of a real (.real) and an imaginary (.imag) part.
+	   |			
+	   |			
+	   |		    
+	   | Mapping  Data |------- Dictionary (dict) :unordered collection of key-value pairs    <------|
+           |												 |
+	   |												 |
+	   |												 |
+           | Set Data	   | ------- Set (set) : unordered, mutable collection of unique values		 |------- mutable 
+	   |		    										 |
+Data Types | 		   | ------- String (str)  							 |
+	   | 		   | 	    									 |
+	   | Sequence Data | ------- List (list) : ordered, mutable collection of values	 <-------|
+	   |               |                						 
+	   |		   | ------- Tuple : ordered, immutable collection of values  <--------- immutable 
+	   |
+	   |
+	   |
+	   | Boolean Data
+	   |
+	   |
+
+Variables, functions, classes, modules, or other objects  are called Identifiers while values are Literals
+
+Frozen Set (frozenset): Represents an unordered, immutable collection of unique values
+
+
+
+DataType(var)		to convert to another data type complex can not be converted execpt string
+
+round() 		function returns a floating point number that is a rounded version of the specified number, with the specified number of decimals.
+
+			The default number of decimals is 0, meaning that the function will return the nearest integer.
+
+abs() 			Function returns the absolute value of the specified number.
+
+

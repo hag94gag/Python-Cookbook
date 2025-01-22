@@ -1,0 +1,11 @@
+ *				function unpacking
+def function(*argu)		takes unknown number of arugments it takes the argument as a tuple you can use (*tuple)
+def function(argu=value)	set a defualt value if you have only one argument with a defualt value must be the last argument
+				if the first argument have a defualt value you should set defualt value to all arguments
+def function(*argu)		takes dict as an argument function(parametar/key=value) or use (**dict)
+
+global variable name		to create a global variable inside a function
+
+Recursion			calling function inside function
+
+var = lambda argument : returned value 	Lambda function

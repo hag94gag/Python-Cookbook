@@ -1,0 +1,2 @@
+bool()			return True if it's a variable
+			return False if 0,Empty variable or None

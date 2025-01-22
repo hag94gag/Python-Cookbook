@@ -1,0 +1,85 @@
+; 		multi line code
+
+	strings
+
+\ 			Escape Sequences Characters
+			\n: Inserts a newline in the string.
+			\t: Inserts a horizontal tab in the string.
+			\\: Inserts a single backslash in the string.
+			\': Inserts a single quote in the string.
+			\": Inserts a double quote in the string.
+			\a: Generates an ASCII bell character
+			\r: Inserts a carriage return character,
+
++ 			connect two strings
+
+*			string replication
+
+""" 			multi line string
+
+[start:end:steps] 	indexing
+
+len() 			count the elements of the object
+
+strip() rstrip() 	lstrip() remove any character at the start or the end or both of a sring (default space)
+
+title() 		capitalize the first character of every word and the letters after numbers
+
+capitalize() 		capitalize the first character of every word 
+
+zfill() 		set space holder 0
+
+upper() 		convert to uppercase
+
+lower() 		convert to lowercase
+
+split() rsplit() 	split string into list of string it spearate using space by default 
+
+			it takes two arguments the first one is the seaprator and the max split 
+
+center()		it takes two arguments the fist one is the length and the second one is the character
+
+count()			count the given string repetition it also can take the start and the end
+
+swapcase()		swapthe case of the letters
+
+startswith()		check if the string starts with the given character it can take the start and the end 
+
+endswith()		check if the string ends with the given character it can take the start and the end
+
+index()			it require the substring and return it's index it can take the start and the end
+
+find() 			it require the substring and return it's index it can take the start and the end if the substring does not exist it will return -1
+
+rjust() ljust()		takes two arguments the length and the fill character
+
+splitlines()		return all lines in list
+
+expandtabs()		to expand the taps over 8
+
+istitle()		return True if it is a title
+
+isspace()		return true if it is space
+
+islower()		return true if it is a lowercase
+
+isupper()		return true if it is a uppercase
+
+isidentifier()		return true if it can be a variable name
+
+isalpha()		return true if it is alphabetic characters
+
+isalnum()		return true if it is alphanumeric characters
+
+replace()		replace an old value with the new value can take the count
+
+join()			takes iterable object and return string seperator.join()
+
+%s			placeholder after the end of the string %(variable) %s string %.5s 5 characters only %d degit %f floating point %.2f two zeros
+
+format()		use the {} as placeholder {:s} {:f} {:d} {:.2s} and so on or {:_d} to put _ between every 3 characters
+			can write the index {1:d} prints the second argument
+
+f			use {} spaceholder with format operator 
+
+

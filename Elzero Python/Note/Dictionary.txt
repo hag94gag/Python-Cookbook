@@ -1,0 +1,9 @@
+{key:value}
+get()		to get a value
+clear()		empty the dict
+update()	add element or you can use [key]=value
+copy()		copy a dict soft link
+setdefault()	return the value of the ket if it does exist and create it if it does not
+popitem()	return last element
+items()		return all items
+dict.fromkeys()	creat a dict of any ieratable object

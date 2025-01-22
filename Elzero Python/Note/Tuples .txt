@@ -1,0 +1,7 @@
+(,) or ,		to initiate a tuple
++			concatenate
+*			support multiplecation
+count()			count repeated object
+index()			return object index
+x,y,z=a			set tuple a to 3 variables
+x,y,_,z=a		use _ to ignor an element in the tuple

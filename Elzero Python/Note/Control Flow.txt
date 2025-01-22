@@ -1,0 +1,12 @@
+the if condition and the code can be on the same line
+	if : statment
+
+short if
+	statment condition else statment
+
+
+in 	can be used for checking an element esxistance in a sequanc
+
+not in	a reverse of in
+
+

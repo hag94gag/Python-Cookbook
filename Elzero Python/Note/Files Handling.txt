@@ -1,0 +1,34 @@
+open()			To open a file
+			File Object attributes:
+			name
+			mode
+			encoding
+			Modes:
+				r: Read (default mode, error if file does not exist)
+				w: Write (creates file, overwrites if it exists)
+				a: Append (creates file if it doesn't exist, adds to the end)
+				r+: Read and Write
+				w+: Write and Read (overwrites file)
+				a+: Append and Read
+
+os.path.abspath(__file__)	The path of the script
+
+os.path.dirname(os.path.abspath(__file__)) To get the working directory of the script
+
+r				use raw string the pathes to skip the escape characters
+
+
+readlines()			return list
+
+writelines()			Takes a list and write it into file
+
+truncate()			cutes a spicifce number of characters
+
+tell()				Tells you the postion of the cursor 
+
+seek()				change the postion of the cursor 
+
+
+ 
+
+
