@@ -1,0 +1,189 @@
+=======================================
+               LOGGING
+=======================================
+   - Logging is the process of recording events, errors, or informational messages during program execution.
+   - It helps in debugging, monitoring, and analyzing program behavior.
+
+=======================================
+2. WHY USE LOGGING?
+=======================================
+
+- Better than print() for tracking issues.
+- Logs can be saved to files for later analysis.
+- Allows setting different levels of importance for messages.
+- Helps maintain a clear and professional debugging workflow.
+
+=======================================
+3. HOW TO USE LOGGING:
+=======================================
+
+Step 1: Import the logging module.
+
+import logging
+
+Step 2: Configure logging (basic setup example):
+
+logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
+
+Step 3: Use logging functions in your code:
+
+logging.debug("This is a debug message.")      # Debugging info
+logging.info("This is an info message.")      # General info
+logging.warning("This is a warning message.") # A warning
+logging.error("This is an error message.")    # An error occurred
+logging.critical("This is a critical message.") # A serious issue
+
+=======================================
+4. LOGGING LEVELS:
+=======================================
+
+- DEBUG: Detailed info, useful during debugging.
+- INFO: General informational messages.
+- WARNING: Something unexpected happened but is not a showstopper.
+- ERROR: A more serious problem occurred.
+- CRITICAL: A severe error causing the program to crash.
+
+       DEBUG < INFO < WARNING < ERROR < CRITICAL
+
+=======================================
+5. OUTPUT EXAMPLE:
+=======================================
+
+Console Output:
+
+2025-01-25 10:30:00,001 - INFO - This is an info message.
+2025-01-25 10:30:01,234 - ERROR - This is an error message.
+
+=======================================
+6. LOGGING TO A FILE:
+=======================================
+
+Step 1: Configure logging to save to a file:
+
+logging.basicConfig(filename="app.log", level=logging.WARNING, 
+                    format="%(asctime)s - %(levelname)s - %(message)s")
+
+Step 2: Messages will now be saved to `app.log`.
+
+app.log (Example):
+
+2025-01-25 10:30:00,001 - WARNING - This is a warning message.
+2025-01-25 10:30:01,234 - ERROR - This is an error message.
+
+=======================================
+7. ADVANCED LOGGING CONFIGURATION:
+=======================================
+
+- Add multiple loggers (e.g., console and file):
+
+logger = logging.getLogger()
+logger.setLevel(logging.DEBUG)
+
+# Console Handler
+console_handler = logging.StreamHandler()
+console_handler.setLevel(logging.INFO)
+
+# File Handler
+file_handler = logging.FileHandler("debug.log")
+file_handler.setLevel(logging.DEBUG)
+
+# Formatter
+formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
+console_handler.setFormatter(formatter)
+file_handler.setFormatter(formatter)
+
+# Add handlers to the logger
+logger.addHandler(console_handler)
+logger.addHandler(file_handler)
+
+=======================================
+8. FLOWCHART OF LOGGING:
+
+  [ Event in Program ]
+          |
+   [ Logging Function ]
+          |
+   [ Filter by Level ]
+          |
+ [ Save to Console or File ]
+
+==============================================
+LOGGING.DISABLE() 
+==============================================
+
+
+   - The `logging.disable(level)` function prevents log messages **at or below** the specified severity level 
+     from being displayed or logged.
+   - You might disable logging in production environments where debug or info messages are no longer 
+     needed, to reduce noise or improve performance.
+
+4. **Example Code:**
+   ```python
+   import logging
+
+   # Configure logging
+   logging.basicConfig(level=logging.DEBUG, format='%(levelname)s: %(message)s')
+
+   # Log messages of different levels
+   logging.debug("This is a DEBUG message.")
+   logging.info("This is an INFO message.")
+   logging.warning("This is a WARNING message.")
+   logging.error("This is an ERROR message.")
+   logging.critical("This is a CRITICAL message.")
+
+   # Disable all log messages
+   logging.disable(logging.CRITICAL)
+
+ # These messages will not be shown
+   logging.debug("This DEBUG message will not appear.")
+   logging.info("This INFO message will not appear.")
+   logging.warning("This WARNING message will not appear.")
+   logging.error("This ERROR message will not appear.")
+   logging.critical("This CRITICAL message will not appear.")
+
+
+=======================================
+10. QUICK SUMMARY:
+=======================================
+
+- Use `logging` instead of `print()` for debugging and monitoring.
+- Levels: DEBUG, INFO, WARNING, ERROR, CRITICAL.
+- Save logs to files for detailed error analysis.
+- Configure logging to suit your needs (console, file, or both).
+
+=======================================
+
+Example:
+
+import logging
+
+# Configure logging
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
+
+logging.debug('Start of program')
+
+def factorial(n):
+    logging.debug('Start of factorial(%s)' % (n))
+    total = 1
+    for i in range(1, n + 1):  # Fixed range to start from 1
+        total *= i
+        logging.debug('i is ' + str(i) + ', total is ' + str(total))
+    logging.debug('End of factorial(%s)' % (n))
+    return total
+
+print(factorial(5))
+
+logging.debug('End of program')
+
+
+2025-01-25 12:00:00,001 - DEBUG - Start of program
+2025-01-25 12:00:00,002 - DEBUG - Start of factorial(5)
+2025-01-25 12:00:00,003 - DEBUG - i is 1, total is 1
+2025-01-25 12:00:00,004 - DEBUG - i is 2, total is 2
+2025-01-25 12:00:00,005 - DEBUG - i is 3, total is 6
+2025-01-25 12:00:00,006 - DEBUG - i is 4, total is 24
+2025-01-25 12:00:00,007 - DEBUG - i is 5, total is 120
+2025-01-25 12:00:00,008 - DEBUG - End of factorial(5)
+120
+2025-01-25 12:00:00,009 - DEBUG - End of program
+

@@ -1,0 +1,95 @@
+=======================================
+             ASSERTIONS
+=======================================
+
+   - Assertions are debugging tools used to check if a condition in your code is True.
+   - If the condition is False, the program stops execution and raises an AssertionError.
+
+=======================================
+2. SYNTAX:
+=======================================
+
+assert condition, "Error message (optional)"
+
+- `condition`: The expression to test. It should evaluate to True or False.
+- `"Error message"`: Optional message displayed if the assertion fails.
+
+=======================================
+3. HOW IT WORKS:
+=======================================
+
+1. The `assert` keyword checks a condition.
+2. If the condition is True, the program continues.
+3. If the condition is False:
+   - The program raises an `AssertionError`.
+   - The optional error message is displayed.
+
+=======================================
+4. EXAMPLES:
+=======================================
+
+# Example 1: Basic Assertion
+x = 5
+assert x > 0, "x must be positive"  # Passes, since x > 0
+
+# Example 2: Failing Assertion
+y = -3
+assert y > 0, "y must be positive"  # Fails, raises AssertionError
+
+# Example 3: Using Assertions in Functions
+def divide(a, b):
+    assert b != 0, "Denominator must not be zero"
+    return a / b
+
+result = divide(10, 2)  # Passes, returns 5.0
+result = divide(10, 0)  # Fails, raises AssertionError: "Denominator must not be zero"
+
+=======================================
+5. OUTPUT:
+=======================================
+
+If an assertion fails:
+    Traceback (most recent call last):
+      File "example.py", line 2, in <module>
+        assert y > 0, "y must be positive"
+    AssertionError: y must be positive
+
+=======================================
+6. USE CASES:
+=======================================
+
+- Debugging: Quickly catch programming errors by validating conditions.
+- Input Validation: Ensure function arguments meet requirements.
+- Prevent Invalid States: Stop execution when a condition fails.
+
+=======================================
+7. BEST PRACTICES:
+=======================================
+
+1. Only use assertions for debugging and development.
+   - Do NOT use assertions for handling user errors (use exceptions instead).
+
+2. Assertions are removed when Python runs in optimized mode (e.g., with the `-O` flag).
+   - Critical checks should use `if` and `raise` instead of `assert`.
+
+3. Include meaningful error messages for failed assertions.
+
+=======================================
+8. FLOWCHART:
+
+    [ Check Condition with Assert ]
+            |
+    [ True ] -- Continue Execution
+            |
+    [ False ]
+            |
+    [ AssertionError Raised ]
+
+=======================================
+9. QUICK SUMMARY:
+
+- Assertions are a simple debugging tool.
+- They check if a condition is True and raise errors if it’s False.
+- Use assertions to catch bugs during development, not in production!
+
+=======================================

@@ -1,0 +1,86 @@
+===============================================
+             MU'S DEBUGGER EXPLAINED
+===============================================
+
+Mu is a simple Python editor designed for beginners. It includes 
+a **Debugger** that helps users identify and fix errors in their 
+code by stepping through it line by line and inspecting variables.
+
+-----------------------------------------------
+FEATURES OF MU'S DEBUGGER:
+-----------------------------------------------
+
+1. **Breakpoint**:
+   - You can set a breakpoint in your code where execution will 
+     pause. 
+   - This helps you inspect variables or program flow at a specific 
+     point.
+   - In Mu, breakpoints are set by clicking in the left margin of 
+     the editor, next to the line number.
+
+2. **Step Through Code**:
+   - After pausing at a breakpoint, you can step through the code 
+     line by line.
+   - This allows you to see how the program executes and where it 
+     might go wrong.
+
+3. **Inspect Variables**:
+   - While the program is paused, the debugger displays the 
+     current values of all variables in a side panel.
+   - You can monitor changes to variables as you step through 
+     the code.
+
+4. **Resume Execution**:
+   - After inspecting a breakpoint, you can resume execution until 
+     the program ends or the next breakpoint is reached.
+
+5. **Stop Execution**:
+   - If you’ve found the problem or need to end debugging, you can 
+     stop the execution of the program.
+
+-----------------------------------------------
+STEPS TO USE THE DEBUGGER IN MU:
+-----------------------------------------------
+
+1. **Write Your Code**:
+   - Open Mu and write your Python code in the editor.
+
+2. **Enable the Debugger**:
+   - Click the "Debug" button at the top of the Mu editor to 
+     activate debugging mode.
+
+3. **Set Breakpoints**:
+   - Click in the margin next to a line number to set a breakpoint. 
+     A red dot will appear indicating where the program will pause.
+
+4. **Run the Program**:
+   - Click "Run" to start the program. It will pause at the first 
+     breakpoint.
+
+5. **Step Through**:
+   - Use the "Step" button to execute the program one line at a 
+     time.
+
+6. **Inspect Variables**:
+   - Watch the values of variables update in the debug panel on 
+     the right.
+
+7. **Fix Bugs**:
+   - Use the information from debugging to identify and fix issues 
+     in your code.
+
+-----------------------------------------------
+EXAMPLE:
+-----------------------------------------------
+
+**Code to Debug**:
+```python
+def factorial(n):
+    total = 1
+    for i in range(1, n + 1):
+        total *= i
+    return total
+
+number = 5
+result = factorial(number)
+print(f"The factorial of {number} is {result}")
